@@ -19,11 +19,13 @@ osx:
 	sudo defaults write -g InitialKeyRepeat -int 14
 	sudo defaults write -g KeyRepeat -int 1
 	sudo defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
-	sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target / #https://stackoverflow.com/questions/52514791/after-upgrading-to-macos-mojave-gem-update-is-failing?rq=1
+	# sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target / #https://stackoverflow.com/questions/52514791/after-upgrading-to-macos-mojave-gem-update-is-failing?rq=1
 
 homebrew:
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	brew tap caskroom/fonts
+	brew tap homebrew/cask-fonts
+	brew cask install font-inconsolata || true
+	
 	brew tap neovim/homebrew-neovim
 	brew install --disable-etcdir zsh         || true
 	brew install ag                           || true
@@ -58,9 +60,8 @@ homebrew:
 	brew install docker                       || true
 	brew install docker-compose               || true
 
-brew-cask:
 	brew cask outdated                        
-	brew cask install iterm2                  || true
+	#brew cask install iterm2                  || true
 	brew cask install alfred                  || true
 	brew cask install cmd-eikana              || true
 	brew cask install dockertoolbox           || true
@@ -71,25 +72,25 @@ brew-cask:
 	brew cask install skype                   || true
 	brew cask install spectacle               || true
 	brew cask install the-unarchiver          || true
-	brew cask install vagrant                 || true
-	brew cask install virtualbox              || true
+	#brew cask install vagrant                 || true
+	#brew cask install virtualbox              || true
 	brew cask install visual-studio-code      || true
 	brew cask install charles                 || true
 	brew cask install font-ricty-diminished   || true
 	brew cask install font-hack-nerd-font     || true
-	brew update                               || true
-	brew cleanup                              || true
-	ln -s $(which reattach-to-user-namespace) ~/bin/i
+	#brew update                               || true
+	#brew cleanup                              || true
+	#ln -s $(which reattach-to-user-namespace) ~/bin/i
 
-node:
+#node:
 	#brew install node                         || true
-	brew install nodebrew
-	brew install yarn     
-	nodebrew install-binary latest
-	nodebrew install stable
-	nodebrew use stable
+	#brew install nodebrew
+	#brew install yarn     
+	#nodebrew install-binary latest
+	#nodebrew install stable
+	#nodebrew use stable
 
-python:
+#python:
 	brew install pyenv
 	brew install pipenv
 	CONFIGURE_OPTS="--enable-shared" pyenv install 3.6.6
@@ -98,7 +99,7 @@ python:
 	pip install pynvim
 	vim -c "PlugInstall" -c ":q" -c ":q"
 
-ruby:
+#ruby:
 	brew install rbenv                        || true
 	brew install reattach-to-user-namespace   || true
 	brew install ruby-build                   || true
@@ -109,21 +110,21 @@ ruby:
 	bundle config build.nokogiri --use-system-libraries
 	curl get.pow.cx | sh
 
-golang:
+#golang:
 	#brew install go                           || true
 	#brew install dep                          || true
 	#zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 	#gvm install go1.9
 	#gvm use go1.9 --default
-	go get github.com/motemen/ghq
-	go get github.com/nsf/gocode
-	go get github.com/k0kubun/pp
-	go get golang.org/x/tools/cmd/godoc
-	go get golang.org/x/tools/cmd/goimports
-	go get golang.org/x/tools/cmd/godoc
-	go get github.com/golang/lint/golint
+	#go get github.com/motemen/ghq
+	#go get github.com/nsf/gocode
+	#go get github.com/k0kubun/pp
+	#go get golang.org/x/tools/cmd/godoc
+	#go get golang.org/x/tools/cmd/goimports
+	#go get golang.org/x/tools/cmd/godoc
+	#go get github.com/golang/lint/golint
 
-gcloud:
+#gcloud:
 	brew install stern                        || true
 	brew cask install minikube                || true
 	brew reinstall python@2                   || true # for mojave #Homebrew/homebrew-core/issues/29176
