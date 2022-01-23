@@ -1,5 +1,5 @@
 # see: http://qiita.com/shimma/items/ebeeb410ecebc22dd41e
-install: create-symlinks osx homebrew homebrew-cask node aws golang
+install: create-symlinks osx homebrew homebrew-cask aws golang
 
 create-symlinks:
 	ln -fs ${CURDIR}/.config            ${HOME}/
