@@ -19,7 +19,6 @@ PROMPT="${RESET}${BLUE}[%C]${RESET}${WHITE}$ ${RESET}"
 ANDROID_HOME=/Users/$USER/Library/Android/sdk
 PATH=${PATH}:$ANDROID_HOME/build-tools/30.0.1
 PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-SKAFFOLD_NAMESPACE=dev-shuichi-nagao
 
 setopt auto_list
 setopt auto_menu
@@ -117,7 +116,7 @@ vim_file_mru () {
 # ------------------------------------------------------------
 # fzf
 # ------------------------------------------------------------
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --select-1'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --select-1 --bind=ctrl-k:kill-line --no-sort'
 
 function ssh-fzf () {
   local selected_host=$(grep "Host " ~/.ssh/config | grep -v '*' | cut -b 6- | fzf --query "$LBUFFER")
@@ -138,8 +137,12 @@ function history-fzf() {
     tac="tail -r"
   fi
 
-  BUFFER=$(history -n 1 | eval $tac | peco --query "$LBUFFER")
+  BUFFER=$(history -n 1 | eval $tac | fzf --query "$LBUFFER")
   CURSOR=$#BUFFER
+
+  if [ -n "$BUFFER" ]; then
+    zle accept-line
+  fi
 
   zle reset-prompt
 }
@@ -174,9 +177,10 @@ function fzf-z-search() {
     zle reset-prompt
 }
 
-bindkey "^]" ghq-fzf
-bindkey '^[' fbr
-bindkey '^\' ssh-fzf
+bindkey "^[" fbr
+bindkey '^]' fbr
+bindkey '^\' ghq-fzf
+#bindkey '^\' ssh-fzf
 bindkey '^j' fzf-z-search
 bindkey '^g' fbr
 bindkey '^r' history-fzf
@@ -195,7 +199,7 @@ function import-gcloud() {
     source ~/google-cloud-sdk/completion.zsh.inc
     source ~/google-cloud-sdk/path.zsh.inc
 }
-source ~/google-cloud-sdk/path.zsh.inc
+#source ~/google-cloud-sdk/path.zsh.inc
 
 # ------------------------------------------------------------
 # Exports

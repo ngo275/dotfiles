@@ -1,16 +1,15 @@
 # see: http://qiita.com/shimma/items/ebeeb410ecebc22dd41e
-install: create-symlinks osx homebrew homebrew-cask node python ruby golang gcloud ios aws
+install: create-symlinks osx homebrew homebrew-cask node aws golang
 
 create-symlinks:
 	ln -fs ${CURDIR}/.config            ${HOME}/
 	ln -fs ${CURDIR}/.gitignore         ${HOME}/
 	ln -fs ${CURDIR}/.gitconfig         ${HOME}/
 	ln -fs ${CURDIR}/.gitconfig.local   ${HOME}/
-	ln -fs ${CURDIR}/.peco              ${HOME}/
 	ln -fs ${CURDIR}/.tmux.conf.osx     ${HOME}/.tmux.conf
 	ln -fs ${CURDIR}/.zshrc             ${HOME}/
 	ln -fs ${CURDIR}/.ideavimrc         ${HOME}/
-	ln -fs ${CURDIR}/.hyper.js          ${HOME}/
+	#ln -fs ${CURDIR}/.hyper.js          ${HOME}/
 	touch ${HOME}/.z
 	mkdir ${HOME}/bin || true
 
@@ -24,6 +23,9 @@ osx:
 homebrew:
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew tap homebrew/cask-fonts
+	brew tap neovim/homebrew-neovim && brew install neovim
+	brew tap shopify/shopify && brew install themekit
+	brew tap heroku/brew && brew install heroku
 	brew cask install font-inconsolata || true
 	
 	brew tap neovim/homebrew-neovim
@@ -36,51 +38,42 @@ homebrew:
 	brew install curl                         || true
 	brew install findutils                    || true
 	brew install git                          || true
-	brew install htop                         || true
 	brew install hub                          || true
-	brew install imagemagick                  || true
 	brew install jq                           || true
 	brew install mcrypt                       || true
 	brew install mysql                        || true
-	brew install neovim                       || true
 	brew install nkf                          || true
 	brew install openssl                      || true
-	brew install peco                         || true
+	brew install ghq || true
 	brew install tig                          || true
 	brew install tmux                         || true
 	brew install wget                         || true
 	brew install xz                           || true
 	brew install zsh                          || true
-	brew install kustomize                    || true
-	brew install kubernetes-helm              || true
-	brew install ios-webkit-debug-proxy       || true
 	brew install libxml2                      || true
 	brew install grep                         || true
 	brew install fzf                          || true
+	brew install gsed || true
 	brew install docker                       || true
 	brew install docker-compose               || true
 
 	brew cask outdated                        
-	#brew cask install iterm2                  || true
 	brew cask install alfred                  || true
 	brew cask install cmd-eikana              || true
-	brew cask install dockertoolbox           || true
 	brew cask install google-chrome           || true
 	brew cask install google-japanese-ime     || true
 	brew cask install licecap                 || true
-	brew cask install sequel-pro              || true
-	brew cask install skype                   || true
 	brew cask install spectacle               || true
 	brew cask install the-unarchiver          || true
-	#brew cask install vagrant                 || true
-	#brew cask install virtualbox              || true
 	brew cask install visual-studio-code      || true
 	brew cask install charles                 || true
 	brew cask install font-ricty-diminished   || true
 	brew cask install font-hack-nerd-font     || true
-	#brew update                               || true
-	#brew cleanup                              || true
+	brew install --cask imageoptim || true
+	brew update                               || true
+	brew cleanup                              || true
 	#ln -s $(which reattach-to-user-namespace) ~/bin/i
+	apm disable tree-view
 
 #node:
 	#brew install node                         || true
@@ -110,19 +103,19 @@ homebrew:
 	# bundle config build.nokogiri --use-system-libraries
 	# curl get.pow.cx | sh
 
-#golang:
-	#brew install go                           || true
-	#brew install dep                          || true
-	#zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-	#gvm install go1.9
-	#gvm use go1.9 --default
-	#go get github.com/motemen/ghq
-	#go get github.com/nsf/gocode
-	#go get github.com/k0kubun/pp
-	#go get golang.org/x/tools/cmd/godoc
-	#go get golang.org/x/tools/cmd/goimports
-	#go get golang.org/x/tools/cmd/godoc
-	#go get github.com/golang/lint/golint
+golang:
+	brew install go                           || true
+	brew install dep                          || true
+	zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+	gvm install go1.9
+	gvm use go1.9 --default
+	go get github.com/motemen/ghq
+	go get github.com/nsf/gocode
+	go get github.com/k0kubun/pp
+	go get golang.org/x/tools/cmd/godoc
+	go get golang.org/x/tools/cmd/goimports
+	go get golang.org/x/tools/cmd/godoc
+	go get github.com/golang/lint/golint
 
 #gcloud:
 	# brew install stern                        || true
