@@ -1,6 +1,6 @@
 ## Installation
 
 ```sh
-$ cd $HOME && git clone https://github.com/shimma/dotfiles.git
+$ cd $HOME && git clone https://github.com/ngo275/dotfiles.git
 $ make install
 ```
