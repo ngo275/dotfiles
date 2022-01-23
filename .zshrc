@@ -1,4 +1,5 @@
-export LANG=ja_JP.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 export LEuSCHARSET=utf-8
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -14,6 +15,11 @@ BLUE="%{${fg[blue]}%}"
 RESET="%{${reset_color}%}"
 WHITE="%{${fg[white]}%}"
 PROMPT="${RESET}${BLUE}[%C]${RESET}${WHITE}$ ${RESET}"
+
+ANDROID_HOME=/Users/$USER/Library/Android/sdk
+PATH=${PATH}:$ANDROID_HOME/build-tools/30.0.1
+PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+SKAFFOLD_NAMESPACE=dev-shuichi-nagao
 
 setopt auto_list
 setopt auto_menu
@@ -488,3 +494,18 @@ elif complete >/dev/null 2>&1; then
         }
     }
 fi
+
+[[ -s "/Users/shuichinagao/.gvm/scripts/gvm" ]] && source "/Users/shuichinagao/.gvm/scripts/gvm"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/shuichinagao/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/shuichinagao/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/shuichinagao/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/shuichinagao/google-cloud-sdk/completion.zsh.inc'; fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/shuichinagao/.sdkman"
+[[ -s "/Users/shuichinagao/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shuichinagao/.sdkman/bin/sdkman-init.sh"
+
+# Added by Amplify CLI binary installer
+export PATH="$HOME/.amplify/bin:$PATH"

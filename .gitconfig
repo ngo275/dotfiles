@@ -106,3 +106,5 @@
 [merge "mergepbx"]
 	name = Xcode project files merger
 	driver = /usr/local/bin/mergepbx %O %A %B
+[credential]
+	helper = osxkeychain
