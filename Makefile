@@ -91,24 +91,24 @@ homebrew:
 	#nodebrew use stable
 
 #python:
-	brew install pyenv
-	brew install pipenv
-	CONFIGURE_OPTS="--enable-shared" pyenv install 3.6.6
-	pyenv global 3.6.6
-	pip install --upgrade pip
-	pip install pynvim
-	vim -c "PlugInstall" -c ":q" -c ":q"
+	# brew install pyenv
+	# brew install pipenv
+	# CONFIGURE_OPTS="--enable-shared" pyenv install 3.6.6
+	# pyenv global 3.6.6
+	# pip install --upgrade pip
+	# pip install pynvim
+	# vim -c "PlugInstall" -c ":q" -c ":q"
 
 #ruby:
-	brew install rbenv                        || true
-	brew install reattach-to-user-namespace   || true
-	brew install ruby-build                   || true
-	brew install v8                           || true
-	sudo gem install bundler
-	bundle config build.libv8 --with-system-v8
-	bundle config build.therubyracer --with-v8-dir=/usr/local/opt/v8-315/
-	bundle config build.nokogiri --use-system-libraries
-	curl get.pow.cx | sh
+	# brew install rbenv                        || true
+	# brew install reattach-to-user-namespace   || true
+	# brew install ruby-build                   || true
+	# brew install v8                           || true
+	# sudo gem install bundler
+	# bundle config build.libv8 --with-system-v8
+	# bundle config build.therubyracer --with-v8-dir=/usr/local/opt/v8-315/
+	# bundle config build.nokogiri --use-system-libraries
+	# curl get.pow.cx | sh
 
 #golang:
 	#brew install go                           || true
@@ -125,20 +125,20 @@ homebrew:
 	#go get github.com/golang/lint/golint
 
 #gcloud:
-	brew install stern                        || true
-	brew cask install minikube                || true
-	brew reinstall python@2                   || true # for mojave #Homebrew/homebrew-core/issues/29176
-	curl https://sdk.cloud.google.com | bash
-	gcloud components update
-	gcloud components install kubectl
-	gcloud components install appengine-go
-	chmod 755 ~/google-cloud-sdk/platform/google_appengine/goapp
-	chmod 755 ~/google-cloud-sdk/platform/google_appengine/*.py
+	# brew install stern                        || true
+	# brew cask install minikube                || true
+	# brew reinstall python@2                   || true # for mojave #Homebrew/homebrew-core/issues/29176
+	# curl https://sdk.cloud.google.com | bash
+	# gcloud components update
+	# gcloud components install kubectl
+	# gcloud components install appengine-go
+	# chmod 755 ~/google-cloud-sdk/platform/google_appengine/goapp
+	# chmod 755 ~/google-cloud-sdk/platform/google_appengine/*.py
 	#ln -s ~/google-cloud-sdk/platform/google_appengine/goapp /usr/local/bin/
 
-ios:
-	sudo gem install cocoapods
+# ios:
+	# sudo gem install cocoapods
 
-aws:
-	sudo curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-darwin-amd64-latest && chmod 755 /usr/local/bin/ecs-cli
+# aws:
+# 	sudo curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-darwin-amd64-latest && chmod 755 /usr/local/bin/ecs-cli
 
