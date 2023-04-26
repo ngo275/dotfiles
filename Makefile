@@ -59,19 +59,19 @@ homebrew:
 	brew install docker                       || true
 	brew install docker-compose               || true
 
-	brew cask outdated                        
-	brew cask install alfred                  || true
-	brew cask install cmd-eikana              || true
-	brew cask install google-chrome           || true
-	brew cask install google-japanese-ime     || true
-	brew cask install licecap                 || true
-	brew cask install spectacle               || true
-	brew cask install the-unarchiver          || true
-	brew cask install visual-studio-code      || true
-	brew cask install charles                 || true
-	brew cask install font-ricty-diminished   || true
-	brew cask install font-hack-nerd-font     || true
-	brew install --cask imageoptim || true
+homebrew-cask:
+	brew install --cask alfred                  || true
+	brew install --cask cmd-eikana              || true
+	brew install --cask google-chrome           || true
+	brew install --cask google-japanese-ime     || true
+	brew install --cask licecap                 || true
+	brew install --cask spectacle               || true
+	brew install --cask the-unarchiver          || true
+	brew install --cask visual-studio-code      || true
+	brew install --cask charles                 || true
+	brew install --cask font-ricty-diminished   || true
+	brew install --cask font-hack-nerd-font     || true
+	# brew install --cask imageoptim || true
 	brew update                               || true
 	brew cleanup                              || true
 	#ln -s $(which reattach-to-user-namespace) ~/bin/i
