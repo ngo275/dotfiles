@@ -9,6 +9,7 @@ create-symlinks:
 	ln -fs ${CURDIR}/.tmux.conf.osx     ${HOME}/.tmux.conf
 	ln -fs ${CURDIR}/.zshrc             ${HOME}/
 	ln -fs ${CURDIR}/.ideavimrc         ${HOME}/
+	#ln -fs ${CURDIR}/.peco ${HOME}/
 	#ln -fs ${CURDIR}/.hyper.js          ${HOME}/
 	touch ${HOME}/.z
 	mkdir ${HOME}/bin || true
@@ -45,6 +46,7 @@ homebrew:
 	brew install nkf                          || true
 	brew install openssl                      || true
 	brew install ghq || true
+	#brew install peco || true
 	brew install tig                          || true
 	brew install tmux                         || true
 	brew install wget                         || true

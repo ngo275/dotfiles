@@ -2,8 +2,8 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LEuSCHARSET=utf-8
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=5000
+SAVEHIST=5000
 autoload -U compinit
 autoload colors
 compinit -C
@@ -19,6 +19,7 @@ PROMPT="${RESET}${BLUE}[%C]${RESET}${WHITE}$ ${RESET}"
 ANDROID_HOME=/Users/$USER/Library/Android/sdk
 PATH=${PATH}:$ANDROID_HOME/build-tools/30.0.1
 PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+PATH="$PATH:`pwd`/flutter/bin"
 
 setopt auto_list
 setopt auto_menu
@@ -177,6 +178,7 @@ function fzf-z-search() {
     zle reset-prompt
 }
 
+#bindkey "^[" ghq-fzf
 bindkey "^[" fbr
 bindkey '^]' fbr
 bindkey '^\' ghq-fzf

@@ -108,3 +108,7 @@
 	driver = /usr/local/bin/mergepbx %O %A %B
 [credential]
 	helper = osxkeychain
+[remote "origin"]
+	proxy = 
+[pull]
+	rebase = true
