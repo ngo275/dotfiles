@@ -16,6 +16,8 @@ RESET="%{${reset_color}%}"
 WHITE="%{${fg[white]}%}"
 PROMPT="${RESET}${BLUE}[%C]${RESET}${WHITE}$ ${RESET}"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 ANDROID_HOME=/Users/$USER/Library/Android/sdk
 PATH=${PATH}:$ANDROID_HOME/build-tools/30.0.1
 PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
