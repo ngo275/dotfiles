@@ -58,6 +58,7 @@ homebrew:
 	brew install gsed || true
 	brew install docker                       || true
 	brew install docker-compose               || true
+	brew install n || true
 
 homebrew-cask:
 	brew install --cask alfred                  || true
